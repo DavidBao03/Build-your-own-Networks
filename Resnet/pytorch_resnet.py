@@ -30,7 +30,7 @@ class block(nn.Module):
         if self.identidy_downsample is not None:
             identity = self.identidy_downsample(identity)
         
-        x += identity
+        x = identity + x
         x = self.relu(x)
         return x
     
@@ -94,5 +94,3 @@ def test():
     x = torch.randn(2, 3, 224, 224)
     y = net(x)
     print(y.shape)
-
-test()
