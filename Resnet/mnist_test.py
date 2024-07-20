@@ -37,11 +37,14 @@ model = ResNet50(image_channels=1, num_classes=10)
 loss_fn = nn.CrossEntropyLoss()
 lr = 1e-3
 optimizer = torch.optim.Adam(model.parameters(), lr=lr)
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
+model = model.to(device)
 
-def train(model, epoch, train_dataloader, valid_dataloader, loss_fn, optimizer):
+def train(model, epoch, train_dataloader, valid_dataloader, loss_fn, optimizer, device):
     for e in range(epoch):
         model.train()
         for img, label in tqdm(train_dataloader, desc="train epoch{}".format(e + 1)):
+            img, label = img.to(device), label.to(device)
             optimizer.zero_grad()
             out = model(img)
             loss = loss_fn(out, label)
@@ -50,23 +53,25 @@ def train(model, epoch, train_dataloader, valid_dataloader, loss_fn, optimizer):
         
         vl = 0
         model.eval()
-        for img, label in tqdm(valid_dataloader, desc="train epoch{}".format(e + 1)):
+        for img, label in tqdm(valid_dataloader, desc="valid epoch{}".format(e + 1)):
+            img, label = img.to(device), label.to(device)
             out = model(img)
             vl += loss_fn(out, label).item()
         vl = vl / len(valid_dataloader.dataset)
         print("epoch {}: loss: {}".format(e + 1, vl))
 
-def test(model, test_dataloader, loss_fn):
+def test(model, test_dataloader, loss_fn, device):
     model.eval()
     test_loss = 0
     gt_labels = []
     pred_labels = []
     with torch.no_grad():
         for data, label in tqdm(test_dataloader, desc="test"):
+            data, label = data.to(device), label.to(device)
             output = model(data)
             preds = torch.argmax(output, 1)
-            gt_labels.append(label.data.numpy())
-            pred_labels.append(preds.data.numpy())
+            gt_labels.append(label.cpu().data.numpy())
+            pred_labels.append(preds.cpu().data.numpy())
             loss = loss_fn(output, label)
             test_loss += loss.item()*data.size(0)
     test_loss = test_loss/len(test_dataloader.dataset)
@@ -74,5 +79,5 @@ def test(model, test_dataloader, loss_fn):
     acc = np.sum(gt_labels==pred_labels)/len(pred_labels)
     print('Test Loss: {:.6f}, Accuracy: {:6f}'.format(test_loss, acc))
 
-train(model, 1, train_dataloader, valid_dataloader, loss_fn=loss_fn, optimizer=optimizer)
-test(model, test_dataloader, loss_fn)
+train(model, 1, train_dataloader, valid_dataloader, loss_fn=loss_fn, optimizer=optimizer, device=device)
+test(model, test_dataloader, loss_fn, device=device)
