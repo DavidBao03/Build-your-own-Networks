@@ -1,0 +1,76 @@
+loading eng...
+loading ger...
+loading successful
+a man in a a shirt and a a a a a . <eos>
+[Epoch 0 / 30, loss 0.07292533665895462]
+=> Saving checkpoint
+a man in a black shirt and a a a a a . <eos>
+[Epoch 1 / 30, loss 0.06652186810970306]
+=> Saving checkpoint
+a man in a blue shirt and a shirt is a a a . <eos>
+[Epoch 2 / 30, loss 0.06289081275463104]
+=> Saving checkpoint
+a man in a blue shirt and a a a a a a a . <eos>
+[Epoch 3 / 30, loss 0.06108924001455307]
+=> Saving checkpoint
+a man in a blue shirt and a a a a a a . <eos>
+[Epoch 4 / 30, loss 0.05894968658685684]
+=> Saving checkpoint
+a man in a blue shirt and a a a a a a a . <eos>
+[Epoch 5 / 30, loss 0.05782837048172951]
+=> Saving checkpoint
+a man in a black shirt and a jeans is a a a a . <eos>
+[Epoch 6 / 30, loss 0.05761938914656639]
+=> Saving checkpoint
+a man in a black shirt and black shorts is a a a a . <eos>
+[Epoch 7 / 30, loss 0.05650860071182251]
+=> Saving checkpoint
+a man in a black shirt and a hat is a a a . <eos>
+[Epoch 8 / 30, loss 0.056740935891866684]
+a man in a black shirt is a a a a a a . <eos>
+[Epoch 9 / 30, loss 0.05645252764225006]
+=> Saving checkpoint
+a man in a blue shirt is a a a a a a . <eos>
+[Epoch 10 / 30, loss 0.055295221507549286]
+=> Saving checkpoint
+a man in a white shirt is a a a a a a . . <eos>
+[Epoch 11 / 30, loss 0.0551321879029274]
+=> Saving checkpoint
+a man in a white shirt is a a a with a a . <eos>
+[Epoch 12 / 30, loss 0.056123409420251846]
+a man in a white shirt is a a a a a a . <eos>
+[Epoch 13 / 30, loss 0.055472370237112045]
+a man in a white shirt is sitting on a doorstep with a a . <eos>
+[Epoch 14 / 30, loss 0.05538405850529671]
+a man in a blue shirt is sitting on a stool with a guitar . <eos>
+[Epoch 15 / 30, loss 0.055883683264255524]
+a man in a blue shirt is sitting on a bench with a a . . <eos>
+[Epoch 16 / 30, loss 0.05444572493433952]
+=> Saving checkpoint
+a man in a blue shirt is sitting on a stool with a a . . <eos>
+[Epoch 17 / 30, loss 0.055315759032964706]
+a man in a white shirt is sitting on a doorstep with a a . <eos>
+[Epoch 18 / 30, loss 0.05543898791074753]
+a man in a blue shirt is sitting on a doorstep and looking at . <eos>
+[Epoch 19 / 30, loss 0.05514271929860115]
+a man in a blue shirt is standing on a of a a . . <eos>
+[Epoch 20 / 30, loss 0.056347623467445374]
+a man in a white shirt is standing on a doorstep with a a . . <eos>
+[Epoch 21 / 30, loss 0.056597646325826645]
+a man in a blue shirt is standing on a sidewalk and looking at the camera . <eos>
+[Epoch 22 / 30, loss 0.05577601492404938]
+a man in a white shirt is standing on a doorstep with a a . <eos>
+[Epoch 23 / 30, loss 0.05524050071835518]
+a man in a white shirt is on a a of a a . <eos>
+[Epoch 24 / 30, loss 0.056320395320653915]
+a man in a blue shirt stands on a ladder next to a building . <eos>
+[Epoch 25 / 30, loss 0.05639294907450676]
+a man in a white shirt stands on a ladder and looking at a . <eos>
+[Epoch 26 / 30, loss 0.05595668777823448]
+a man in a white shirt stands on a ladder looking at the . . <eos>
+[Epoch 27 / 30, loss 0.05784933641552925]
+a man in a white shirt is standing on a ladder and looking at . <eos>
+[Epoch 28 / 30, loss 0.055975306779146194]
+a man in a blue shirt is standing on a ladder and a a . <eos>
+[Epoch 29 / 30, loss 0.058383066207170486]
+BLEU score is 11.43953105905282
