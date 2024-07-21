@@ -56,6 +56,24 @@ class GRU(nn.Module):
 
         out = self.fc(out)
         return out
+    
+class LSTM(nn.Module):
+    def __init__(self, input_size, num_layers, num_classes):
+        super(LSTM, self).__init__()
+        self.num_layers = num_layers
+        self.hidden_size = hidden_size
+        self.lstm = nn.LSTM(input_size, hidden_size, num_layers, batch_first=True)
+        self.fc = nn.Linear(seq_len * hidden_size, num_classes)
+
+    def forward(self, x):
+        h0 = torch.zeros(self.num_layers, x.size(0), self.hidden_size).to(device)
+        # 加上memory
+        c0 = torch.zeros(self.num_layers, x.size(0), self.hidden_size).to(device)
+
+        out, _ = self.lstm(x, (h0, c0))
+        out = out.reshape(out.shape[0], -1)
+        out = self.fc(out)
+        return out
 
 train_dataset = datasets.MNIST('data', train=True,
                                transform=transforms.ToTensor(), download=True)
@@ -66,7 +84,7 @@ test_dataset = datasets.MNIST('data', train=False,
 train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 test_dataloader = DataLoader(test_dataset, batch_size=batch_size, shuffle=True)
 
-model = GRU(input_size=input_size, num_layers=num_layers, num_classes=num_classes).to(device)
+model = LSTM(input_size=input_size, num_layers=num_layers, num_classes=num_classes).to(device)
 
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=learning_rate)
